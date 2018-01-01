@@ -5,15 +5,13 @@ public class HammingDistance {
         System.out.println(hamming.hammingDistance(1,4));
     }
 
+    //Integer.bitCount()
     public int hammingDistance(int x, int y) {
-        int xor = x ^ y;
-        int mask = 0x00000001;
+        int xor = x^y;
         int numberOfDistance = 0;
-        for (int i = 0; i < 32 ; i++) {
-            if ((xor & mask) > 0) {
-                numberOfDistance++;
-            }
-            mask <<= 1;
+        for (int i = 0; i < 32 ; i++) { //iteration for 32bit
+            numberOfDistance += xor & 1;
+            xor >>= 1;
         }
         return numberOfDistance;
     }
