@@ -12,8 +12,10 @@ public class NumberComplement {
             value /= 2;
             mask = (mask << 1) + 1;
         }
+        System.out.format("%d, %x\n",num, Integer.highestOneBit(num));
 
         //입력값의 보수에 대해 마스크 해서 값을 취한다.
         return ~num & mask;
+
     }
 }
