@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 public class ReverseWordString3Test {
 
     @Test
-    public void testSelfDividingNumbers() throws Exception {
+    public void testReverseWordString3() throws Exception {
         ReverseWordString3 reverseWordString3 = new ReverseWordString3();
 
         assertThat(reverseWordString3.reverseWords("word"), is("drow"));

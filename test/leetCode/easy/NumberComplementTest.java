@@ -9,7 +9,7 @@ public class NumberComplementTest {
     private NumberComplement numberComplement = new NumberComplement();
 
     @Test
-    public void testHammingDistance() throws Exception {
+    public void testNumberComplement() throws Exception {
         assertEquals(1, numberComplement.findComplement(0));
         assertEquals(0, numberComplement.findComplement(1));
         assertEquals(2, numberComplement.findComplement(5));

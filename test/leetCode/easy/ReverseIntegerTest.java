@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 public class ReverseIntegerTest {
 
     @Test
-    public void testSelfDividingNumbers() throws Exception {
+    public void testReverseInteger() throws Exception {
         ReverseInteger reverseInteger = new ReverseInteger();
 
         assertThat(reverseInteger.reverse(123), is(321));
