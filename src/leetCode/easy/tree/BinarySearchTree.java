@@ -1,5 +1,9 @@
 package leetCode.easy.tree;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 public class BinarySearchTree {
     private TreeNode root;
 
@@ -147,5 +151,67 @@ public class BinarySearchTree {
             cur = cur.right;
         }
         return cur;
+    }
+
+    // Root, Left, Right
+    public List<Integer> preOrder() {
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            System.out.println(node.val);
+            if (node.right != null) stack.push(node.right);
+            if (node.left != null) stack.push(node.left);
+        }
+
+        return result;
+    }
+
+    // Left, Root, Left
+    public List<Integer> inOrder() {
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
+        while(!stack.isEmpty() || node != null) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else {
+                node = stack.pop();
+                result.add(node.val);
+                System.out.println(node.val);
+                node = node.right;
+            }
+        }
+        return result;
+    }
+
+    // Left, Right, Root
+    //1,3,2,5,7,6,4
+    public List<Integer> postOrder() {
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
+        TreeNode lastVisitedNode = null;
+        while(!stack.isEmpty() || node != null) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else {
+                node = stack.peek();
+                //lastVisit이 없으면, 계속해서 오른쪽으로 들어갔다 나왔다 하는 무한룹에 빠지는 문제 발생.
+                if (node.right != null && lastVisitedNode != node.right) {
+                    node = node.right;
+                } else {
+                    result.add(node.val); //peek node
+                    System.out.println(node.val);
+                    lastVisitedNode = stack.pop();
+                    node = null;
+                }
+            }
+        }
+        return result;
     }
 }

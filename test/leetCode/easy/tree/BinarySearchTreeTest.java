@@ -4,6 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
@@ -26,6 +29,24 @@ public class BinarySearchTreeTest {
     @After
     public void teardown() {
         bst = null;
+    }
+
+    @Test
+    public void test_preOrder() {
+        List<Integer> result = bst.preOrder();
+        assertThat(result, is(Arrays.asList(4,2,1,3,6,5,7)));
+    }
+
+    @Test
+    public void test_inOrder() {
+        List<Integer> result = bst.inOrder();
+        assertThat(result, is(Arrays.asList(1,2,3,4,5,6,7)));
+    }
+
+    @Test
+    public void test_postOrder() {
+        List<Integer> result = bst.postOrder();
+        assertThat(result, is(Arrays.asList(1,3,2,5,7,6,4)));
     }
 
     @Test
