@@ -88,7 +88,7 @@ public class BinarySearchTree {
                 }
             }
 
-            //succor와 삭제할 node의 값을 바꾸고, succor node는 삭제한다.
+            //succesor와 삭제할 node의 값을 바꾸고, succesor와 node는 삭제한다.
             cur.val = succ.val;
             prev.left = null;
         }
