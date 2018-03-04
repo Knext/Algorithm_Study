@@ -20,7 +20,7 @@ public class MinDiffBSTTest {
     private TreeNode testTree1() {
         TreeNode root = new TreeNode(9);
         root.left = new TreeNode(1);
-        root.right = new TreeNode(6);
+        root.right = new TreeNode(10);
         return root;
     }
 
@@ -35,7 +35,7 @@ public class MinDiffBSTTest {
     private TreeNode testTree3() {
         TreeNode root = new TreeNode(1);
         root.right = new TreeNode(3);
-        root.right.right = new TreeNode(2);
+        root.right.right = new TreeNode(4);
         return root;
     }
 
